@@ -3,7 +3,7 @@
 
 <ul>
   #foreach($task in $category.getTasks())
-   <li>$task.getDescription()</li>
+   <li><a href="/tasks/$task.getId()">$task.getDescription()</a></li>
   #end
 </ul>
 

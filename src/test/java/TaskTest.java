@@ -4,6 +4,11 @@ import java.time.LocalDateTime;
 
 public class TaskTest {
 
+  @After
+  public void tearDown() {
+    Task.clear();
+  }
+
   @Test
   public void Task_instantiatesCorrectly_true(){
     Task myTask = new Task("Mow the lawn");
@@ -35,13 +40,14 @@ public class TaskTest {
   public void clear_emptiesAllTasksFromArrayList_0() {
     Task myTask = new Task("Mow the lawn");
     Task.clear();
-    assertEquals(Task.all().size(), 0);
+    assertEquals(0, Task.all().size());
   }
+
   @Test
   public void getId_tasksInstantiatesWithAnID_1() {
-    Task.clear();
+    // Task.clear();
     Task myTask = new Task("mow the lawn");
-    assertEquals(1, myTask.getId());
+    assertEquals(myTask.getId(), 1);
   }
   @Test
   public void find_returnsTaskWithSameId_secondTask() {
@@ -49,4 +55,6 @@ public class TaskTest {
     Task secondTask = new Task("Buy groceries");
     assertEquals(Task.find(secondTask.getId()), secondTask);
   }
+
+
 }
