@@ -12,7 +12,6 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      // model.put("tasks", request.session().attribute("tasks"));
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -77,7 +76,7 @@ public class App {
     }, new VelocityTemplateEngine());
 
 
-
+//see below
     get("/tasks/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Task task = Task.find(Integer.parseInt(request.params(":id")));
@@ -88,3 +87,15 @@ public class App {
     }, new VelocityTemplateEngine());
   }
 }
+
+
+//nathanielimeyer
+// get("categories/:id1/tasks/:id2", (request, response) -> {
+//   Map<String, Object> model = new HashMap<String, Object>();
+//   Category category = Category.find(Integer.parseInt(request.params(":id1")));
+//   Task task = Task.find(Integer.parseInt(request.params(":id2")));
+//   model.put("category", category);
+//   model.put("task", task);
+//   model.put("template", "templates/task.vtl");
+//   return new ModelAndView(model, layout);
+// }, new VelocityTemplateEngine());

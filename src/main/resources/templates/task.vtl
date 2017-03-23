@@ -1,5 +1,11 @@
-<h1>$task.getDescription()</h1>
-<h2>Completed?:  $task.isCompleted()</h2>
+#if ($task)
+  <h1>$task.getDescription()</h1>
+  <h2>Completed?:  $task.isCompleted()</h2>
+#else
+  <p>
+    Opps! We don't seem to have that task!
+  </p>
+#end
 
 <a href="../categories/$category.getId()/tasks/new">Add another task</a>
 <a href="/tasks">All tasks</a>
